@@ -13,6 +13,16 @@ Then your need to put esp8266 and FTDI programmator together as shown below.
 
 ![](https://github.com/djvov/esp8266-blynk-bot/blob/master/schema/esp2866%20first.jpg?raw=true)
 
-Open Arduino OTA from examples and write it.
+Open Arduino OTA sketch from examples and write it.
 
 Because in this robot I took all PINs to some tasks, we need to write firmware Over The Air. And first step is load OTA firmware to esp8266.
+
+## ESP8266 to breadboard
+
+I'll buy native esp8266 chip and white development borad. It's has some width as breadboard width. So we need to extend it by wire to another row. From 1 row to 9 row, from 2 row to 10 row, etc.
+
+![](https://github.com/djvov/esp8266-blynk-bot/blob/master/schema/esp8266%20bread1.jpg?raw=true)
+
+The yellow lines just to show what pin goes to its row.
+
+![](https://github.com/djvov/esp8266-blynk-bot/blob/master/schema/esp8266%20bread2.jpg?raw=true)
