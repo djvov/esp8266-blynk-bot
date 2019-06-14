@@ -38,3 +38,5 @@ First of all, two 18650 with serial connection to get 8.4v. With BMS plate to pr
 From battery block we need to build TWO special power lines: 3.3v for ESP8266, 5v for servo and HC–SR04 sonar. And raw 8.4v power for motor drivers.
 3.3v we get from LM1117DT-3.3, 5v we get from LM7805. In both case two ceramic 104 capacitor for IN and OUT to ground.
 **IMPORTANT!** It is necessary to connect **ALL GROUNDS**
+
+![](https://github.com/djvov/esp8266-blynk-bot/blob/master/real/small/vk_VSyZD3ZBPP4.jpg?raw=true)
