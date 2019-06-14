@@ -45,8 +45,8 @@
 char auth[] = "daba40ff91354db085800bb97092ec8b";
 
 // Your WiFi credentials.
-char ssid[] = "djvov";
-char pass[] = "g0tb44r?";
+char ssid[] = "";
+char pass[] = "";
 
 // использованные пины 1 3 5 4 15      13 12 14 16
 
@@ -58,7 +58,7 @@ const int in3 = 5;
 const int in4 = 4;
 
 // скорость 1023 max
-int spd = 300; 
+int spd = 300;
 
 // датчик расстояние
 const int trigPin = 15;
@@ -91,7 +91,7 @@ int angleR = 50;
 int angleL = 140;
 // дистанции остановки
 int distSTOP = 30; // дистанция СТОП!
-int distCaution = 50; // дистанция ОСТОРОЖНО! скорость 300 
+int distCaution = 50; // дистанция ОСТОРОЖНО! скорость 300
 int distAttention = 70; // дистанция ВНИМАНИЕ! скорость 400
 //  Задача переменных Сонара
 int distanceSonar;
@@ -121,7 +121,7 @@ void strobo() {
   digitalWrite(led1, LOW);
   delay(100);
   digitalWrite(led, LOW);
-  digitalWrite(led1, HIGH);  
+  digitalWrite(led1, HIGH);
 }
 
 void stp(int f) { // стоп
@@ -136,7 +136,7 @@ void stp(int f) { // стоп
 }
 
 void checkrasst() { // проверка расстояния в ручном режиме поездки и остановка если мало
-  int cm = distanceMeasuringSonar (angleF);  
+  int cm = distanceMeasuringSonar (angleF);
   if (cm<distSTOP) {
     stp(0);
     servo1.write(70);
@@ -144,7 +144,7 @@ void checkrasst() { // проверка расстояния в ручном р�
     servo1.write(110);
     delay(500);
     servo1.write(90);
-  } 
+  }
 }
 
 void go_forv(int a, int sa) {
@@ -157,10 +157,10 @@ void go_forv(int a, int sa) {
   analogWrite(in1, spd1);
   digitalWrite(in2, LOW);
   analogWrite(in3, spd1);
-  digitalWrite(in4, LOW);  
+  digitalWrite(in4, LOW);
   terminal.println(String("go_forv"));
   terminal.flush();
-  
+
   if (autO==1) {
     delay (a);
   }
@@ -242,7 +242,7 @@ int distanceMeasuringSonar (int angle)// функция — измерение �
 void go_auto() {
   if (autO==1){
     distanceSonarSON_F = distanceMeasuringSonar (angleF); // запускаем функцию измерения расстояния сонаром
-    
+
     // логика — если растояние меньше СТОП!
     if (distanceSonarSON_F < distSTOP) // если расстояние впереди меньше distSTOP — двигаемся назад с разворотом // stop back
     {
@@ -253,25 +253,25 @@ void go_auto() {
     // логика — если растояние больше ОСТОРОЖНО
     if (distanceSonarSON_F > distCaution && distAttention > distanceSonarSON_F) // если расстояние впереди больше distCaution но меньше distAttention — двигаться ВПЕРЕД с низкой скоростьюю // forv low
     {
-      go_forv (20, autoSpd); // normal Forward (время, скорость)     
+      go_forv (20, autoSpd); // normal Forward (время, скорость)
     }
     // логика — если растояние больше ВНИМАНИЕ
     if (distanceSonarSON_F > distAttention) // если расстояние впереди больше distAttention — двигаться ВПЕРЕД с высокой скоростью // forv high
     {
       go_forv (50, 400); // normal Forward (время, скорость)
     }
-    
+
     // измеряем расстояние СПРАВА
     distanceSonarSON_R = distanceMeasuringSonar (angleR); // запускаем функцию измерения расстояния сонаром
-    
+
     if (distanceSonarSON_R < distCaution) // если расстояние впереди меньше
     {
       go_left (60, autoSpd); // поворот (время, скорость)
     }
-    
+
     // измеряем расстояние ПРЯМО
     distanceSonarSON_F = distanceMeasuringSonar (angleF); // запускаем функцию измерения расстояния сонаром
-    
+
     // логика — если растояние меньше СТОП!
     if (distanceSonarSON_F < distSTOP) // если расстояние впереди меньше distSTOP — двигаемся назад с разворотом
     {
@@ -290,7 +290,7 @@ void go_auto() {
       go_forv (50, 400); // normal Forward (время, скорость)
     }
     // измеряем расстояние СЛЕВА
-    distanceSonarSON_L = distanceMeasuringSonar (angleL); // запускаем функцию измерения расстояния сонаром    
+    distanceSonarSON_L = distanceMeasuringSonar (angleL); // запускаем функцию измерения расстояния сонаром
     if (distanceSonarSON_L < distCaution) // если расстояние впереди меньше distCaution
     {
       go_left (50, autoSpd); // поворот (время, скорость)
@@ -305,14 +305,14 @@ BLYNK_WRITE(V5) // ручной режим зажечь фару
   int snd = param.asInt(); // assigning incoming value from pin V5 to a variable
   if (snd == 1) {
     timer.enable(timerStrob);
-    terminal.println(String("Strobo ON"));  
+    terminal.println(String("Strobo ON"));
     terminal.flush();
   } else {
     timer.disable(timerStrob);
-    terminal.println(String("Strobo OFF"));  
+    terminal.println(String("Strobo OFF"));
     terminal.flush();
     digitalWrite(led, LOW);
-    digitalWrite(led1, LOW);  
+    digitalWrite(led1, LOW);
   }
 }
 
@@ -330,18 +330,18 @@ BLYNK_WRITE(V7)
   if (autO==1) {
     timer.enable(timerAuto);
     timer.enable(timerStrob);
-    terminal.println(String("AUTO ON"));  
+    terminal.println(String("AUTO ON"));
     terminal.flush();
   } else {
     stp(0);
-    terminal.println(String("AUTO OFF"));  
+    terminal.println(String("AUTO OFF"));
     terminal.flush();
     timer.disable(timerAuto);
     timer.disable(timerStrob);
     digitalWrite(led, LOW);
-    digitalWrite(led1, LOW);  
+    digitalWrite(led1, LOW);
   }
-  
+
 }
 
 BLYNK_WRITE(V6)
@@ -353,7 +353,7 @@ BLYNK_WRITE(V6)
 
 BLYNK_WRITE(V1)
 {
-  V1_forv = param.asInt(); // ручной режим вперед 
+  V1_forv = param.asInt(); // ручной режим вперед
   if (V1_forv == 1) {
     go_forv(0,spd);
   }
@@ -375,7 +375,7 @@ BLYNK_WRITE(V2)
 
 BLYNK_WRITE(V4) // ручной режим влево
 {
-  V4_left = param.asInt(); // assigning incoming value from pin V4 to a variable  
+  V4_left = param.asInt(); // assigning incoming value from pin V4 to a variable
   if (V4_left == 1) {
     go_left(0,spd);
   }
@@ -386,7 +386,7 @@ BLYNK_WRITE(V4) // ручной режим влево
 
 BLYNK_WRITE(V3) // ручной режим вправо
 {
-  V3_right = param.asInt(); 
+  V3_right = param.asInt();
   if (V3_right == 1) {
     go_right(0,spd);
   }
@@ -396,20 +396,20 @@ BLYNK_WRITE(V3) // ручной режим вправо
 }
 
 void setup()
-{ 
+{
   // моторы
   pinMode(in1, OUTPUT);
   pinMode(in2, OUTPUT);
   pinMode(in3, OUTPUT);
   pinMode(in4, OUTPUT);
   stp(0);
-  
+
   // фара
   pinMode(led, OUTPUT);
   pinMode(led1, OUTPUT);
   digitalWrite(led, LOW);
   digitalWrite(led1, LOW);
-  
+
   //датчик расстояния
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
@@ -417,25 +417,25 @@ void setup()
   // увидел ли стену в ручном режиме
   timerStena = timer.setInterval(13L, checkrasst);
   timer.disable(timerStena);
-  
+
   // автопрогулка
   timerAuto = timer.setInterval(1L, go_auto);
   timer.disable(timerAuto);
 
   timerStrob = timer.setInterval(200L, strobo);
   timer.disable(timerStrob);
-  
+
   // задаем серву
   servo1.attach(servoPin);
   servo1.write(90);
   // по воздуху
-  ArduinoOTA.begin(); 
+  ArduinoOTA.begin();
   Blynk.begin(auth, ssid, pass);
-  
+
   terminal.clear();
   terminal.println(String("Speed ") + String(spd));
   terminal.println(String("Servo 90"));
-  terminal.print(String("Local IP"));  
+  terminal.print(String("Local IP"));
   terminal.println(WiFi.localIP());
   terminal.flush();
 }
