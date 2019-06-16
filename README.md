@@ -76,7 +76,7 @@ const int in2 = 14;
 const int in3 = 5;
 const int in4 = 4;
 ```
-HC–SR04 sonar use 5v power and 5v TTL logic. But it know about 3.3v TTL for *TRIG* pin (input). *BUT ECHO* pin (output) needs to be connect to ESP8266 through voltage divider
+HC–SR04 sonar use 5v power and 5v TTL logic. But it know about 3.3v TTL for *TRIG* pin (HC–SR04 input). *BUT ECHO* pin (HC–SR04 output) needs to be connect to ESP8266 through voltage divider
 
 
 ![](https://github.com/djvov/esp8266-blynk-bot/blob/master/schema/voltage_divider.jpg?raw=true)
@@ -92,4 +92,11 @@ LED uses TX and RX pins. THATS WHY FIRST OF ALL WE FLSAH OTA sketch.
 // LED
 const int led = 1;
 const int led1 = 3;
+```
+
+Servo SG90 use 5v power and 5v TTL logic. But it know about 3.3v TTL for SG90 input.
+
+```c
+//servo
+const int servoPin = 16;
 ```
