@@ -40,3 +40,15 @@ From battery block we need to build TWO special power lines: 3.3v for ESP8266, 5
 **IMPORTANT!** It is necessary to connect **ALL GROUNDS**
 
 ![](https://github.com/djvov/esp8266-blynk-bot/blob/master/real/small/vk_VSyZD3ZBPP4.jpg?raw=true)
+
+### MOTOR
+
+I use MX1508 dual motors driver, analog of L298N. 1.5A per channel, 2.5A peak. With no heat sink. Becarefurl with VCC *+* and *-*.
+
+![](https://github.com/djvov/esp8266-blynk-bot/blob/master/schema/MX1508motor.jpg?raw=true)
+
+I use two MX1508 dual motors drivers, becase  I have four wheels. One MX1508 drives two motors from same side. So we need to put IN1 and IN3 together, also IN2 and IN4, for same direction of two motors. This schema can use only two pins of ESP8266 instead of four pins.
+
+Here is table of signal for direction, standby and brakes. Standby different from brake. Standby ends of power to motor, and motor stops by itself, it tooks some time. Brake stops motor immediately.
+
+![](https://github.com/djvov/esp8266-blynk-bot/blob/master/schema/MX1508motorSCHEMA.jpg?raw=true)
