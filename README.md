@@ -4,7 +4,7 @@
 
 [https://github.com/djvov/esp8266-blynk-bot/blob/master/real/vk_sYRZaswefbQ.jpg?raw=true]
 
-[![Watch the video]()](https://www.youtube.com/watch?v=UbAJtE57SPo)
+[![Watch the video](https://github.com/djvov/esp8266-blynk-bot/blob/master/real/small/youtube_screenshot.jpg?raw=true)](https://www.youtube.com/watch?v=UbAJtE57SPo)
 
 ## First firmware update of ESP8266
 
