@@ -4,6 +4,8 @@
 
 [https://github.com/djvov/esp8266-blynk-bot/blob/master/real/vk_sYRZaswefbQ.jpg?raw=true]
 
+[![Watch the video]()](https://www.youtube.com/watch?v=UbAJtE57SPo)
+
 ## First firmware update of ESP8266
 
 In Arduino IDE setup you need to put "http://arduino.esp8266.com/stable/package_esp8266com_index.json" at the line "Extend links to board manager".
@@ -56,3 +58,6 @@ I use two MX1508 dual motors drivers, becase  I have four wheels. One MX1508 dri
 Here is table of signal for direction, standby and brakes. Standby different from brake. Standby ends of power to motor, and motor stops by itself, it tooks some time. Brake stops motor immediately.
 
 ![](https://github.com/djvov/esp8266-blynk-bot/blob/master/schema/MX1508motorSCHEMA.jpg?raw=true)
+
+### CONNECTION
+
