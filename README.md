@@ -6,6 +6,10 @@
 
 [![Watch the video](https://github.com/djvov/esp8266-blynk-bot/blob/master/real/small/youtube_screenshot.jpg?raw=true)](https://www.youtube.com/watch?v=UbAJtE57SPo)
 
+## PINOUT
+
+![](https://github.com/djvov/esp8266-blynk-bot/blob/master/schema/ESP8266_12Epinout.jpg?raw=true)
+
 ## First firmware update of ESP8266
 
 In Arduino IDE setup you need to put "http://arduino.esp8266.com/stable/package_esp8266com_index.json" at the line "Extend links to board manager".
@@ -21,7 +25,7 @@ Because in this robot I took all PINs to some tasks, we need to write firmware O
 
 ## ESP8266 to breadboard
 
-I'll buy native esp8266 chip and white development borad. 
+I'll buy native esp8266 chip and white development board. 
 
 ![](https://github.com/djvov/esp8266-blynk-bot/blob/master/real/small/esp8266_breakout_board.jpg?raw=true)
 
@@ -86,6 +90,6 @@ LED uses TX and RX pins. THATS WHY FIRST OF ALL WE FLSAH OTA sketch.
 
 ```c
 // LED
-const int led = 7;
-const int led1 = 6;
+const int led = 1;
+const int led1 = 3;
 ```
