@@ -72,4 +72,20 @@ const int in2 = 14;
 const int in3 = 5;
 const int in4 = 4;
 ```
+HC–SR04 sonar use 5v power and 5v TTL logic. But it know about 3.3v TTL for *TRIG* pin (input). *BUT ECHO* pin (output) needs to be connect to ESP8266 through voltage divider
 
+
+![](https://github.com/djvov/esp8266-blynk-bot/blob/master/schema/voltage_divider.jpg?raw=true)
+
+```c
+// HC–SR04 sonar
+const int trigPin = 15;
+const int echoPin = 13; // через делитель!
+```
+LED uses TX and RX pins. THATS WHY FIRST OF ALL WE FLSAH OTA sketch.
+
+```c
+// LED
+const int led = 7;
+const int led1 = 6;
+```
