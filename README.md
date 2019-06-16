@@ -61,3 +61,15 @@ Here is table of signal for direction, standby and brakes. Standby different fro
 
 ### CONNECTION
 
+White board for ESP8266 already has pull-up 10k resistors for CH_PD and RESET, and pull-down 10k resistor for GPIO15. If you use native ESP8622 chip you must use put this resistor manually. Also, we has to pull-up GPIO2 and GPIO0 with 10k resistors. And I put ceramic 104 capacitor between VCC and GND of ESP8266.
+
+```c
+//motors
+// left
+const int in1 = 12;
+const int in2 = 14;
+// right
+const int in3 = 5;
+const int in4 = 4;
+```
+
