@@ -19,7 +19,11 @@ Because in this robot I took all PINs to some tasks, we need to write firmware O
 
 ## ESP8266 to breadboard
 
-I'll buy native esp8266 chip and white development borad. In the Fritzing schema I didn't find white pcb, so I put what I found, some black.
+I'll buy native esp8266 chip and white development borad. 
+
+![](https://github.com/djvov/esp8266-blynk-bot/blob/master/real/small/esp8266_breakout_board.jpg?raw=true)
+
+In the Fritzing schema I didn't find white pcb, so I put what I found, some black.
 But, as white pcb, It's has some width as breadboard width. So we need to extend it by wire to another row. From 1 row to 9 row, from 2 row to 10 row, etc.
 
 ![](https://github.com/djvov/esp8266-blynk-bot/blob/master/schema/esp8266%20bread1.jpg?raw=true)
