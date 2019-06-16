@@ -3,9 +3,9 @@
   * [First firmware update of ESP8266](#first-firmware-update-of-esp8266)
   * [ESP8266 to breadboard](#esp8266-to-breadboard)
   * [Full Schema](#full-schema)
-    + [POWER](#power)
-    + [MOTOR](#motor)
-    + [CONNECTION](#connection)
+  * [POWER](#power)
+  * [MOTOR](#motor)
+  * [CONNECTION](#connection)
 
 # ESP8266 and BLYNK 4WD Robot
 
@@ -51,7 +51,7 @@ The yellow lines just to show hot to each  pin goes to its row after pcb.
 
 ![](https://raw.githubusercontent.com/djvov/esp8266-blynk-bot/master/schema/esp_robot.jpg)
 
-### POWER
+## POWER
 
 First of all, two 18650 with serial connection to get 8.4v. With BMS plate to prevent overdischarge, and charge it with balance.
 From battery block we need to build TWO special power lines: 3.3v for ESP8266, 5v for servo and HC–SR04 sonar. And raw 8.4v power for motor drivers.
@@ -60,7 +60,7 @@ From battery block we need to build TWO special power lines: 3.3v for ESP8266, 5
 
 ![](https://github.com/djvov/esp8266-blynk-bot/blob/master/real/small/vk_VSyZD3ZBPP4.jpg?raw=true)
 
-### MOTOR
+## MOTOR
 
 I use MX1508 dual motors driver, analog of L298N. 1.5A per channel, 2.5A peak. With no heat sink. Becarefurl with VCC *+* and *-*.
 
@@ -72,7 +72,7 @@ Here is table of signal for direction, standby and brakes. Standby different fro
 
 ![](https://github.com/djvov/esp8266-blynk-bot/blob/master/schema/MX1508motorSCHEMA.jpg?raw=true)
 
-### CONNECTION
+## CONNECTION
 
 White board for ESP8266 already has pull-up 10k resistors for CH_PD and RESET, and pull-down 10k resistor for GPIO15. If you use native ESP8622 chip you must use put this resistor manually. Also, we has to pull-up GPIO2 and GPIO0 with 10k resistors. And I put ceramic 104 capacitor between VCC and GND of ESP8266.
 
