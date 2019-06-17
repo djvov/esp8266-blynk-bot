@@ -67,7 +67,7 @@ From battery block we need to build TWO special power lines: 3.3v for ESP8266, 5
 
 ## MOTOR
 
-I use MX1508 dual motors driver, analog of L298N. 1.5A per channel, 2.5A peak. With no heat sink. Becarefurl with VCC *+* and *-*.
+I use MX1508 dual motors driver, analog of L298N. 1.5A per channel, 2.5A peak. With no heat sink. Becarefurl with VCC **+** and **-**.
 
 ![](https://github.com/djvov/esp8266-blynk-bot/blob/master/schema/MX1508motor.jpg?raw=true)
 
@@ -90,7 +90,7 @@ const int in2 = 14;
 const int in3 = 5;
 const int in4 = 4;
 ```
-HC–SR04 sonar use 5v power and 5v TTL logic. But it know about 3.3v TTL for *TRIG* pin (HC–SR04 input). *BUT ECHO* pin (HC–SR04 output) needs to be connect to ESP8266 through voltage divider
+HC–SR04 sonar use 5v power and 5v TTL logic. But it know about 3.3v TTL for **TRIG** pin (HC–SR04 input). **BUT ECHO** pin (HC–SR04 output) needs to be connect to ESP8266 through voltage divider
 
 
 ![](https://github.com/djvov/esp8266-blynk-bot/blob/master/schema/voltage_divider.jpg?raw=true)
@@ -140,7 +140,7 @@ int spd = 300;
 int autoSpd = 300;
 ```
 
-**timerStrob** is for timer thats run stroboscope effect with leds.
+**timerStrob** is for timer that runs stroboscope effect with leds.
 
 ```c
 int timerStrob;
