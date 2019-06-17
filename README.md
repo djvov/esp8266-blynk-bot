@@ -148,7 +148,7 @@ Default speed. Slowest 300. If **speed < 300**, motor has not enough power to mo
 ```c
 // скорость 1023 max
 int spd = 300;
-// скорость автопргулки
+// скорость автопрогулки
 int autoSpd = 300;
 ```
 
@@ -178,4 +178,22 @@ Global variable `autO` that indicates if auto walk running. Last letter is capit
 ```c
 // авто прогулка
 int autO = 0;
+```
+
+Servo angles. In order for the sonar to look forward, the servo must be rotated 90 degrees. Similarly, sonar to right 50 degrees, sonar to left 140 degrees.
+
+```c
+// Углы поворота Серовпривода
+int angleF = 90;
+int angleR = 50;
+int angleL = 140;
+```
+
+Distances in centimeters. `distAttention` - Speed higher. `distCaution` - Speed lower. `distSTOP` - STOP.
+
+```c
+// дистанции остановки
+int distSTOP = 30; // дистанция СТОП!
+int distCaution = 50; // дистанция ОСТОРОЖНО! скорость 300
+int distAttention = 70; // дистанция ВНИМАНИЕ! скорость 400
 ```
