@@ -155,7 +155,7 @@ int V3_right = 0;
 int V4_left = 0;
 ```
 
-Global variable **autO** that indicates if auto walk running.
+Global variable **autO** that indicates if auto walk running. Last letter is capital because **auto** is reserved word. You may name it **autoWalk**.
 
 ```c
 // авто прогулка
