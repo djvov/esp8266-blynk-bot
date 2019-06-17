@@ -154,3 +154,10 @@ int V2_back = 0;
 int V3_right = 0;
 int V4_left = 0;
 ```
+
+Global variable **autO** that indicates if auto walk running.
+
+```c
+// авто прогулка
+int autO = 0;
+```
