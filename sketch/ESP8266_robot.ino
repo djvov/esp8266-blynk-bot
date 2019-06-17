@@ -42,7 +42,7 @@
 
 
 // You should get Auth Token in the Blynk App.
-char auth[] = "daba40ff91354db085800bb97092ec8b";
+char auth[] = "";
 
 // Your WiFi credentials.
 char ssid[] = "";
@@ -98,15 +98,14 @@ int angle = 0;
 // скорость автопргулки
 int autoSpd = 300;
 
-//таймер запуска датчика расстояния
 BlynkTimer timer;
+//таймер запуска датчика расстояния
 int timerStena;
 //таймер автопрогулки
 int timerAuto;
 
 //servo
 const int servoPin = 16;
-int srv = 0;
 Servo servo1;
 
 WidgetTerminal terminal(V8);
@@ -313,7 +312,7 @@ BLYNK_WRITE(V5) // ручной режим зажечь фару
 
 BLYNK_WRITE(V0)
 {
-  srv = param.asInt(); // ручной режим покрутить головой
+  int srv = param.asInt(); // ручной режим покрутить головой
   terminal.println(String("Servo ") + String(srv));
   terminal.flush();
   servo1.write(srv);

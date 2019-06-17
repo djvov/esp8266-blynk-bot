@@ -112,6 +112,7 @@ Servo SG90 use 5v power and 5v TTL logic. But it know about 3.3v TTL for SG90 in
 
 ```c
 //servo
+Servo servo1;
 const int servoPin = 16;
 ```
 
@@ -131,6 +132,17 @@ V8  terminal
 
 ## Robot setup
 
+You should get Auth Token in the Blynk App. Get it from Blynk app. And login and password to your router.
+
+```c
+// You should get Auth Token in the Blynk App.
+char auth[] = "";
+
+// Your WiFi credentials.
+char ssid[] = "";
+char pass[] = "";
+```
+
 Default speed. Slowest 300. If **speed < 300**, motor has not enough power to move. Fastest is 1023. But I set tup fastest is 600 because if **speed > 600**, robot could not stop before it crashes the wall ).
 
 ```c
@@ -140,11 +152,17 @@ int spd = 300;
 int autoSpd = 300;
 ```
 
-**timerStrob** is for timer that runs stroboscope effect with leds.
+`timerStrob` is for timer that runs stroboscope effect with leds.
+`timerStena` is for timer that checks distance to the obstacle in manual mode, it moves the servo to which the sonar is attached.
+`timerAuto` is for timer that runs auto walk, it moves the servo to which the sonar is attached.
 
 ```c
+BlynkTimer timer;
 int timerStrob;
+int timerStena;
+int timerAuto;
 ```
+
 Movement flags to know where the robot is going.
 
 ```c
@@ -155,7 +173,7 @@ int V3_right = 0;
 int V4_left = 0;
 ```
 
-Global variable `**autO**` that indicates if auto walk running. Last letter is capital because `auto` is reserved word. You may name it `autoWalk`.
+Global variable `autO` that indicates if auto walk running. Last letter is capital because `auto` is reserved word. You may name it `autoWalk`.
 
 ```c
 // авто прогулка
