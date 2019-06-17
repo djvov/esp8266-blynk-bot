@@ -49,7 +49,6 @@ The yellow lines just to show hot to each  pin goes to its row after pcb.
 
 ## Full Schema
 
-![](https://raw.githubusercontent.com/djvov/esp8266-blynk-bot/master/schema/esp_robot.jpg)
 ![https://raw.githubusercontent.com/djvov/esp8266-blynk-bot/master/schema/robot_bb.jpg?raw=true](https://raw.githubusercontent.com/djvov/esp8266-blynk-bot/master/schema/robot_bb_small.jpg?raw=true)
 
 ## POWER
