@@ -7,6 +7,7 @@
   * [MOTOR](#motor)
   * [CONNECTION](#connection)
   * [BLYNK APP](#blynk-app)
+  * [Robot setup](#robot-setup)
 
 # ESP8266 and BLYNK 4WD Robot
 
