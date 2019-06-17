@@ -112,3 +112,14 @@ Servo SG90 use 5v power and 5v TTL logic. But it know about 3.3v TTL for SG90 in
 //servo
 const int servoPin = 16;
 ```
+
+## BLYNK APP
+
+![](https://github.com/djvov/esp8266-blynk-bot/blob/master/blynk/small/blynk1_small.jpg?raw=true) ![](https://github.com/djvov/esp8266-blynk-bot/blob/master/blynk/small/blynk2_small.jpg?raw=true)
+
+V0 slider, 0-180, decimals 0, send on release Off. Servo. Just for fun. In time the robot walks - servo is worked automatic.
+V1-V4 push type buttons, Forward, Revers, Right, Left.
+V5 switch type button. LEDs.
+V6 slider, 300-600, decimals 0, send on release On. Speed.
+V7 switch type button. Automatic walk.
+V8 terminal.
