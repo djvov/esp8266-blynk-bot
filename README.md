@@ -131,7 +131,7 @@ V8  terminal
 
 ## Robot setup
 
-Default speed. Slowest 300. If speed < 300, motor has not enough power to move. Fastest is 1023. But I set tup fastest is 600 because if speed > 600, robot could not stop before it crashes the wall ).
+Default speed. Slowest 300. If **speed < 300**, motor has not enough power to move. Fastest is 1023. But I set tup fastest is 600 because if **speed > 600**, robot could not stop before it crashes the wall ).
 
 ```c
 // скорость 1023 max
@@ -155,7 +155,7 @@ int V3_right = 0;
 int V4_left = 0;
 ```
 
-Global variable **autO** that indicates if auto walk running. Last letter is capital because **auto** is reserved word. You may name it **autoWalk**.
+Global variable `autO` that indicates if auto walk running. Last letter is capital because `auto` is reserved word. You may name it `autoWalk`.
 
 ```c
 // авто прогулка
