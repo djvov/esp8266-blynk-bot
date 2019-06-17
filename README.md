@@ -127,3 +127,12 @@ V6  slider, 300-600, decimals 0, send on release On. Speed.
 V7  switch type button. Automatic walk.
 V8  terminal
 ```
+
+## Robot setup
+
+Default speed. Slowest 300. If speed < 300, motor has not enough power to move. Fastest is 1023. But I set tup fastest is 600 because if speed > 600, robot could not stop before it crashes the wall ).
+
+```c
+// скорость 1023 max
+int spd = 300;
+```
