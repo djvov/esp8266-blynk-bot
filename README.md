@@ -118,7 +118,7 @@ const int servoPin = 16;
 
 ![](https://github.com/djvov/esp8266-blynk-bot/blob/master/blynk/small/blynk1_small.jpg?raw=true) ![](https://github.com/djvov/esp8266-blynk-bot/blob/master/blynk/small/blynk2_small.jpg?raw=true)
 
-```
+```c
 V0  slider, 0-180, decimals 0, send on release Off. Servo. Just for fun.
     In time the robot walks - servo is worked automatic.
 V1-V4 push type buttons, Forward, Revers, Right, Left.
