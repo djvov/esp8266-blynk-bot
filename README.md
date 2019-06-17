@@ -34,7 +34,7 @@ Because in this robot I took all PINs to some tasks, we need to write firmware O
 
 ## ESP8266 to breadboard
 
-I'll buy native esp8266 chip and white development board. 
+I'll buy native esp8266 chip and white development board.
 
 ![](https://github.com/djvov/esp8266-blynk-bot/blob/master/real/small/esp8266_breakout_board.jpg?raw=true)
 
@@ -50,6 +50,7 @@ The yellow lines just to show hot to each  pin goes to its row after pcb.
 ## Full Schema
 
 ![](https://raw.githubusercontent.com/djvov/esp8266-blynk-bot/master/schema/esp_robot.jpg)
+![https://raw.githubusercontent.com/djvov/esp8266-blynk-bot/master/schema/robot_bb.jpg?raw=true](https://raw.githubusercontent.com/djvov/esp8266-blynk-bot/master/schema/robot_bb_small.jpg?raw=true)
 
 ## POWER
 
