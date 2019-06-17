@@ -67,7 +67,6 @@ const int echoPin = 13; // через делитель!
 // фара
 const int led = 3;
 const int led1 = 1;
-int strob = 0;
 int timerStrob;
 
 // флаги движения

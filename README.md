@@ -135,4 +135,21 @@ Default speed. Slowest 300. If speed < 300, motor has not enough power to move. 
 ```c
 // скорость 1023 max
 int spd = 300;
+// скорость автопргулки
+int autoSpd = 300;
+```
+
+**timerStrob** is for timer thats run stroboscope effect with leds.
+
+```c
+int timerStrob;
+```
+Movement flags to know where the robot is going.
+
+```c
+// флаги движения
+int V1_forv = 0;
+int V2_back = 0;
+int V3_right = 0;
+int V4_left = 0;
 ```
