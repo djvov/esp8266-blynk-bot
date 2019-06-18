@@ -10,8 +10,8 @@
   * [CONNECTION](#connection)
   * [BLYNK APP](#blynk-app)
   * [Includes](#includes)
-  * [Robot settings (variable declaration) ](#robot-settings)
-  * [Void Setup) ](#void-setup)
+  * [Robot settings (variable declaration)](#robot-settings)
+  * [Void Setup](#void-setup)
 
 ![](https://github.com/djvov/esp8266-blynk-bot/blob/master/real/small/vk_sYRZaswefbQ.jpg?raw=true)
 
