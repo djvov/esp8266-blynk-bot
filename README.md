@@ -17,6 +17,7 @@
     + [Strobo function](#strobo-function)
     + [Checkrasst function](#checkrasst-function)
     + [distanceMeasuringSonar function](#distancemeasuringsonar-function)
+    + [Movement functions](#movement-functions)
 
 ![](https://github.com/djvov/esp8266-blynk-bot/blob/master/real/small/vk_sYRZaswefbQ.jpg?raw=true)
 
@@ -412,6 +413,90 @@ int distanceMeasuringSonar (int angle)// функция — измерение �
   terminal.println(distanceSonar);
   terminal.flush();
   return (distanceSonar); // возвращаем расстояние
+}
+```
+
+[Table of contents](#esp8266-and-blynk-4wd-robot)
+
+### Movement functions
+
+All movement (forward, backward, left, right) functions excluding STOP has two parameters, delay (uses in auto walk mode), and speed.
+If auto walk mode is activated, speed takes from function parameter, in manual mode speed takes from global variables spd, that regulates from blynk app by slider widget. And we enable `timerStena` in forward function. And I write in terminal what's going on.
+
+```c
+void stp(int f) { // стоп
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, LOW);
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, LOW);
+  terminal.println(String("stop"));
+  terminal.flush();
+  timer.disable(timerStena);
+  delay(f);
+}
+
+void go_forv(int a, int sa) {
+  int spd1 = 0;
+  if (autO==1) spd1=sa;
+  else spd1=spd;
+  if (autO==0) {
+    timer.enable(timerStena);
+  }
+  analogWrite(in1, spd1);
+  digitalWrite(in2, LOW);
+  analogWrite(in3, spd1);
+  digitalWrite(in4, LOW);
+  terminal.println(String("go_forv"));
+  terminal.flush();
+
+  if (autO==1) {
+    delay (a);
+  }
+}
+
+void go_back(int g, int sg) {
+  int spd1 = 0;
+  if (autO==1) spd1=sg;
+  else spd1=spd;
+  digitalWrite(in1, LOW);
+  analogWrite(in2, spd1);
+  digitalWrite(in3, LOW);
+  analogWrite(in4, spd1);
+  terminal.println(String("go_back"));
+  terminal.flush();
+  if (autO==1) {
+    delay (g);
+  }
+}
+
+void go_left(int e, int se) {
+  int spd1 = 0;
+  if (autO==1) spd1=se;
+  else spd1=spd;
+  digitalWrite(in1, LOW);
+  analogWrite(in2, spd1);
+  analogWrite(in3, spd1);
+  digitalWrite(in4, LOW);
+  terminal.println(String("go_left"));
+  terminal.flush();
+  if (autO==1) {
+    delay (e);
+  }
+}
+
+void go_right(int d, int sd) {
+  int spd1 = 0;
+  if (autO==1) spd1=sd;
+  else spd1=spd;
+  analogWrite(in1, spd1);
+  digitalWrite(in2, LOW);
+  digitalWrite(in3, LOW);
+  analogWrite(in4, spd1);
+  terminal.println(String("go_right"));
+  terminal.flush();
+  if (autO==1) {
+    delay (d);
+  }
 }
 ```
 
