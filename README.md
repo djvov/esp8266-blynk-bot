@@ -448,7 +448,6 @@ void go_forv(int a, int sa) {
   digitalWrite(in4, LOW);
   terminal.println(String("go_forv"));
   terminal.flush();
-
   if (autO==1) {
     delay (a);
   }
