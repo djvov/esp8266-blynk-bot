@@ -9,6 +9,7 @@
   * [MOTOR](#motor)
   * [CONNECTION](#connection)
   * [BLYNK APP](#blynk-app)
+  * [Includes](#includes)
   * [Robot setup](#robot-setup)
 
 ![](https://github.com/djvov/esp8266-blynk-bot/blob/master/real/small/vk_sYRZaswefbQ.jpg?raw=true)
@@ -146,6 +147,22 @@ V8  terminal
 ```
 
 [Table of contents](#esp8266-and-blynk-4wd-robot)
+
+## Includes
+
+For use Blynk App you must need `ESP8266WiFi` and `BlynkSimpleEsp8266` libraries. `ESP8266mDNS` and WiFiUdp` and `ArduinoOTA` for Over The Air upload. Servo for servo ;-)
+
+```c
+#include <ESP8266mDNS.h>
+#include <WiFiUdp.h>
+#include <ESP8266WiFi.h>
+#include <BlynkSimpleEsp8266.h>
+#include <ArduinoOTA.h>
+#include <Servo.h>
+```
+
+[Table of contents](#esp8266-and-blynk-4wd-robot)
+
 
 ## Robot setup
 
