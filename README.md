@@ -11,6 +11,7 @@
   * [BLYNK APP](#blynk-app)
   * [Includes](#includes)
   * [Robot settings (variable declaration) ](#robot-settings)
+  * [Void Setup) ](#void-setup)
 
 ![](https://github.com/djvov/esp8266-blynk-bot/blob/master/real/small/vk_sYRZaswefbQ.jpg?raw=true)
 
@@ -242,6 +243,95 @@ Delay time to stabilize servo.
 
 ```c
 int delay_time = 150; // время задержки для стабилизации сервопривода
+```
+
+[Table of contents](#esp8266-and-blynk-4wd-robot)
+
+## Void Setup
+
+In this section you must initizlize pin mode, attach servo, move it forward (90 degrees), stop motors, turn off the leds.
+
+```c
+ // моторы
+  pinMode(in1, OUTPUT);
+  pinMode(in2, OUTPUT);
+  pinMode(in3, OUTPUT);
+  pinMode(in4, OUTPUT);
+  stp(0);
+  // фара leds
+  pinMode(led, OUTPUT);
+  pinMode(led1, OUTPUT);
+  digitalWrite(led, LOW);
+  digitalWrite(led1, LOW);
+  //датчик расстояния sonar
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  // servo
+  servo1.attach(servoPin);
+  servo1.write(90);
+```
+
+Timer setup. BlynkTimer is similar as SimpleTimer. First of all needs to declare timer object in global. `BlynkTimer timer;`
+Timer objects can manage several timers. Each of them must be also declared. `int timerStrob;`.
+Then we must determine the correspondence between variable and function.
+`int setInterval(unsigned long d, timer_callback f);`
+First parametr `d` is delay in milliseconds, second parameter `f` is name of callback function that runs every `d` milliseconds.
+
+```c
+  timerStrob = timer.setInterval(200, strobo);
+```
+
+And disable that timer, because we don't need to all timer functions run at startup.
+
+```c
+  timer.disable(timerStrob);
+```
+
+We do the same for all timers.
+
+```c
+  // увидел ли стену в ручном режиме
+  timerStena = timer.setInterval(13L, checkrasst);
+  timer.disable(timerStena);
+
+  // автопрогулка
+  timerAuto = timer.setInterval(1L, go_auto);
+  timer.disable(timerAuto);
+```
+
+Then we start OTA and Blynk
+
+```c
+// по воздуху
+  ArduinoOTA.begin();
+  Blynk.begin(auth, ssid, pass);
+```
+
+Theb we initilize terminal widget.
+`clear` function clear ther terminal. `print` and `println` functions as Serial.print, writes text and return or not return caret.
+After we finished all text, we need to terminal sends data to blynk app by the `flush` function.
+Lets write some 'hello' text and current IP after robot connects to router.
+
+```c
+  terminal.clear();
+  terminal.println(String("Speed ") + String(spd));
+  terminal.println(String("Servo 90"));
+  terminal.print(String("Local IP"));
+  terminal.println(WiFi.localIP());
+  terminal.flush();
+```
+
+## Void Loop
+
+When you use Blynk your **loop section** must contains only `Blynk.run()`. `ArduinoOTA.handle();` if you uses OTA, and `timer.run();` if you uses timer functions. **Thats all!** All loops, cycles, events, actions, etc. in separate functions.
+
+```c
+void loop()
+{
+  ArduinoOTA.handle();
+  Blynk.run();
+  timer.run();
+}
 ```
 
 [Table of contents](#esp8266-and-blynk-4wd-robot)
