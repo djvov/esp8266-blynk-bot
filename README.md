@@ -215,4 +215,16 @@ int distCaution = 50; // дистанция ОСТОРОЖНО! скорость
 int distAttention = 70; // дистанция ВНИМАНИЕ! скорость 400
 ```
 
+Terminal widget in blynk app attached to Virtual pin 8. For some debug information.
+
+```c
+WidgetTerminal terminal(V8);
+```
+
+Delay time to stabilize servo.
+
+```c
+int delay_time = 150; // время задержки для стабилизации сервопривода
+```
+
 [Table of contents](#esp8266-and-blynk-4wd-robot)
