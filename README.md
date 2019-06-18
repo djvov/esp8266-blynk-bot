@@ -150,7 +150,7 @@ V8  terminal
 
 ## Includes
 
-For use Blynk App you must need `ESP8266WiFi` and `BlynkSimpleEsp8266` libraries. `ESP8266mDNS` and WiFiUdp` and `ArduinoOTA` for Over The Air upload. Servo for servo ;-)
+For use Blynk App you must need `ESP8266WiFi` and `BlynkSimpleEsp8266` libraries. `ESP8266mDNS` and `WiFiUdp` and `ArduinoOTA` for Over The Air upload. Servo for servo ;-)
 
 ```c
 #include <ESP8266mDNS.h>
