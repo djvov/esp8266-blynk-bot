@@ -15,6 +15,7 @@
   * [Void Loop](#void-loop)
   * [Functions](#functions)
     + [Strobo function](#strobo-function)
+    + [Checkrasst function](#checkrasst-function)
 
 ![](https://github.com/djvov/esp8266-blynk-bot/blob/master/real/small/vk_sYRZaswefbQ.jpg?raw=true)
 
@@ -352,6 +353,26 @@ void strobo() {
   delay(100);
   digitalWrite(led, LOW);
   digitalWrite(led1, HIGH);
+}
+```
+
+[Table of contents](#esp8266-and-blynk-4wd-robot)
+
+### checkrasst function
+
+Checks distance to the obstacle in manual mode. When The robot stop near the 'wall' he shakes his head like a man, means **"NO"**
+
+```c
+void checkrasst() { // проверка расстояния в ручном режиме поездки и остановка если мало
+  int cm = distanceMeasuringSonar (angleF);
+  if (cm<distSTOP) {
+    stp(0);
+    servo1.write(70);
+    delay(500);
+    servo1.write(110);
+    delay(500);
+    servo1.write(90);
+  }
 }
 ```
 
