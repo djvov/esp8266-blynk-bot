@@ -421,7 +421,7 @@ int distanceMeasuringSonar (int angle)// функция — измерение �
 ### Movement functions
 
 All movement (forward, backward, left, right) functions excluding STOP has two parameters, delay (uses in auto walk mode), and speed.
-If auto walk mode is activated, speed takes from function parameter, in manual mode speed takes from global variables spd, that regulates from blynk app by slider widget. And we enable `timerStena` in forward function. And I write in terminal what's going on.
+If auto walk mode is activated, speed takes from function parameter, in manual mode speed takes from global variables spd, that regulates from blynk app by slider widget. And we enable `timerStena` in forward function when manual mode is activated. And I write in terminal what's going on.
 
 ```c
 void stp(int f) { // стоп
