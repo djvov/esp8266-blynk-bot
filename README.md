@@ -12,6 +12,9 @@
   * [Includes](#includes)
   * [Robot settings (variable declaration)](#robot-settings)
   * [Void Setup](#void-setup)
+  * [Void Loop](#void-loop)
+  * [Functions](#functions)
+    + [Strobo function](#strobo-function)
 
 ![](https://github.com/djvov/esp8266-blynk-bot/blob/master/real/small/vk_sYRZaswefbQ.jpg?raw=true)
 
@@ -331,6 +334,24 @@ void loop()
   ArduinoOTA.handle();
   Blynk.run();
   timer.run();
+}
+```
+
+[Table of contents](#esp8266-and-blynk-4wd-robot)
+
+## Functions
+
+### Strobo function
+
+Just blink two leds one by one.
+
+```c
+void strobo() {
+  digitalWrite(led, HIGH);
+  digitalWrite(led1, LOW);
+  delay(100);
+  digitalWrite(led, LOW);
+  digitalWrite(led1, HIGH);
 }
 ```
 
