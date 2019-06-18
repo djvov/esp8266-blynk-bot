@@ -16,6 +16,7 @@
   * [Functions](#functions)
     + [Strobo function](#strobo-function)
     + [Checkrasst function](#checkrasst-function)
+    + [distanceMeasuringSonar function](#distancemeasuringsonar-function)
 
 ![](https://github.com/djvov/esp8266-blynk-bot/blob/master/real/small/vk_sYRZaswefbQ.jpg?raw=true)
 
@@ -378,7 +379,7 @@ void checkrasst() { // проверка расстояния в ручном р�
 
 [Table of contents](#esp8266-and-blynk-4wd-robot)
 
-###
+### distanceMeasuringSonar function
 
 Measuring distance to the obstacle at the some angle. `angle` parameter in degrees. In [settings](#robot-settings) we declare some variables for some angles. Turn the servo, wait for stabilization. Then use sonar. If result of the `pulseIn` function is **0** this means error of measurement, and we need to restart sonar by send **low** to `echoPin`, before this turn `echoPin` in **OUTPUT mode**, and back in **INPUT** mode after sonar reset. And I decided return 400cm in this case (limit of measurement). If everything is ok, divide result of the `pulseIn` function by 58, we get distance in **cm**.
 
