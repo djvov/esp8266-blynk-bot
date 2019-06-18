@@ -360,7 +360,7 @@ void strobo() {
 
 ### checkrasst function
 
-Checks distance to the obstacle in manual mode. When The robot stop near the 'wall' he shakes his head like a man, means **"NO"**
+Checks distance to the obstacle in manual mode. Servo looks forward (90 degrees). When The robot stop near the 'wall' he shakes his head like a man, means **"NO"**
 
 ```c
 void checkrasst() { // проверка расстояния в ручном режиме поездки и остановка если мало
@@ -373,6 +373,42 @@ void checkrasst() { // проверка расстояния в ручном р�
     delay(500);
     servo1.write(90);
   }
+}
+```
+
+[Table of contents](#esp8266-and-blynk-4wd-robot)
+
+###
+
+Measuring distance to the obstacle at the some angle. `angle` parameter in degrees. In [settings](#robot-settings) we declare some variables for some angles. Turn the servo, wait for stabilization. Then use sonar. If result of the `pulseIn` function is **0** this means error of measurement, and we need to restart sonar by send **low** to `echoPin`, before this turn `echoPin` in **OUTPUT mode**, and back in **INPUT** mode after sonar reset. And I decided return 400cm in this case (limit of measurement). If everything is ok, divide result of the `pulseIn` function by 58, we get distance in **cm**.
+
+```c
+// *************** Функция определения Расстояния СОНАР ******************
+int distanceMeasuringSonar (int angle)// функция — измерение расстояния при определенном угле поворота сервопривода
+{
+  int distanceSonar = 0;
+  servo1.write(angle); // поворот сервопривода 1
+  delay (delay_time); // подождать стабилизацию сервопривода
+  digitalWrite (trigPin, LOW); // подать напряжение на сонар LOW в течении 2¦Мs
+  delayMicroseconds (2);
+  digitalWrite (trigPin, HIGH); // подать напряжение HIGH на сонар в течении 10¦Мs
+  delayMicroseconds (10);
+  digitalWrite (trigPin, LOW); // подать напряжение LOW на сонар
+  int distance = pulseIn(echoPin, HIGH, 30000); // считываем данные с Сонара
+  if (distance == 0)// если расстояние "0" — ошибка измерения (вне предела/завис)
+  { // делаем перезагрузку сонара подачей 0 на вывод ECHO Сонара
+    pinMode(echoPin, OUTPUT);
+    digitalWrite(echoPin, 0);
+    pinMode(echoPin, INPUT);
+    // в случае ошибки измерения выводим расстояние "400 см" — расстояние вне предела измерения датчика
+    distanceSonar = 400;
+  } else {
+    distanceSonar = distance / 58; // переводим "время" в сантиметры
+  }
+  terminal.print(String("DISTANCE "));
+  terminal.println(distanceSonar);
+  terminal.flush();
+  return (distanceSonar); // возвращаем расстояние
 }
 ```
 
