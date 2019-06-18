@@ -10,7 +10,7 @@
   * [CONNECTION](#connection)
   * [BLYNK APP](#blynk-app)
   * [Includes](#includes)
-  * [Robot setup](#robot-setup)
+  * [Robot settings (variable declaration) ](#robot-settings)
 
 ![](https://github.com/djvov/esp8266-blynk-bot/blob/master/real/small/vk_sYRZaswefbQ.jpg?raw=true)
 
@@ -164,7 +164,7 @@ For use Blynk App you must need `ESP8266WiFi` and `BlynkSimpleEsp8266` libraries
 [Table of contents](#esp8266-and-blynk-4wd-robot)
 
 
-## Robot setup
+## Robot settings
 
 You should get Auth Token in the Blynk App. Get it from Blynk app. And login and password to your router.
 
